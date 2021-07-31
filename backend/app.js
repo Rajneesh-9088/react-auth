@@ -12,6 +12,10 @@ mongoose.connect('mongodb://localhost:27017/react-auth',
 .catch((err)=> console.log(err));
 
 
+app.use(express.json());
+const authRoutes = require('./routes/authRoutes');
+app.use(authRoutes);
+
 app.get('/hello', (req,res)=>{
     res.send("Hi");
 })
